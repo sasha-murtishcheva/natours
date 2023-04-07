@@ -12,6 +12,7 @@
   visibility: hidden;
   transition: all .3s;
 
+
   &__content {
     @include absCenter;
     width: 75%;
@@ -29,6 +30,15 @@
   &__left {
     width: 33.3333%;
     display: table-cell;
+
+    @include respond(tab-land) {
+      display: table-row;
+    }
+
+    @include respond(phone) {
+      display: none;
+    }
+
   }
 
   &__right {
@@ -36,11 +46,19 @@
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+
   }
 
   &__img {
     display: block;
     width: 100%;
+
+    @include respond(tab-land) {
+      width: 50%;
+      margin-top: -1rem;
+      display: inline-block;
+    }
+
   }
 
   &__text {
@@ -59,6 +77,12 @@
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
+
+    @include respond(phone) {
+
+      -moz-column-count: 1;
+      column-count: 1;
+    }
   }
 
   &:target {
